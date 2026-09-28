@@ -2,6 +2,26 @@
 
 Process one chronological batch of a Pinboard-style bookmark export into Markdown RAG documents. Requires [uv](https://docs.astral.sh/uv/) and Linux (uses `flock` for exclusive run ownership). Python 3.11+ and dependencies are selected by the script's PEP 723 metadata.
 
+## make
+
+The `Makefile` wraps the script with a few defaults. Only the input is required; `make help` prints the same list:
+
+```bash
+make process <pinboard_export.json>
+make process ~/bookmarks.json BATCH_SIZE=50
+make help
+```
+
+| Variable | Default |
+| --- | --- |
+| `INPUT` | none (required) |
+| `OUTPUT` | `storage/rag_bookmarks_processed.json` |
+| `CHECKPOINT` | `storage/checkpoint.json` |
+| `BATCH_SIZE` | `100` |
+| `CONCURRENCY` | `10` |
+
+## Running the script directly
+
 Place your export in `bookmarks.json`, then run:
 
 ```bash
