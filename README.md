@@ -6,6 +6,8 @@ Process one chronological batch of a Pinboard-style bookmark export into Markdow
 
 The `Makefile` wraps the script with a few defaults. Only the input is required; `make help` prints the same list:
 
+Values from `.env` are used when set; exported environment variables and command-line assignments take precedence.
+
 ```bash
 make process <pinboard_export.json>
 make process ~/bookmarks.json BATCH_SIZE=50
